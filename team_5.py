@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+import matplotlib
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
@@ -44,3 +46,16 @@ for i in a:
 
 print(web)
 print(star)
+
+matplotlib.rcParams["axes.unicode_minus"]=False
+plt.rc('font', family='Malgun Gothic')
+
+x=range(1,11)
+
+plt.bar(x,star)
+plt.axis([0,11,9.9,10])
+plt.xticks(x,web,rotation='vertical',fontsize=8)
+plt.suptitle('웹툰 별점 순위 (%s)' %day)
+plt.xlabel('웹툰명')
+plt.ylabel('별점')
+plt.show()
